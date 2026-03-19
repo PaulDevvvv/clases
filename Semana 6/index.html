@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registro de Usuarios</title>
+
 </head>
 <body>
-    
+
+    <h2>Registro de Usuarios</h2>
+    <form id="Formulario">
+
+        <input type="text" id="nombre" placeholder="Nombre">
+        <p id="errorNombre"></p>
+        <input type="email"  id="correo" placeholder="Correo">
+        <p id="errorCorreo"></p>
+        <input type="password" id="password" placeholder="Contraseña">
+        <p id="errorPassword"></p>
+
+        <button type="submit">Registrar</button>
+
+        <h3>Usuarios Registrados</h3>
+        <div id="listaUsuarios"></div>
+        <script src="validacion.js"></script>
+    </form>
 </body>
 </html>
