@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones en Js</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-seccion">
+            <h2>Agregar Estudiante</h2>
+            <input type="text" id="nombre" placeholder="Nombre">
+            <input type="text" id="id" placeholder="ID">
+            <input type="text" id="edad" placeholder="Edad">
+            <input type="text" id="nota" placeholder="Calificación">
+
+            <label for="genero">Género:</label>
+            <select id="genero">
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+            </select>
+
+            <button onclick="registrar()">Agregar</button>
+        </div>
+
+        <div class="actions">
+            <button onclick="mostrarTodos()">Mostrar Todos</button>
+            <button onclick="quitar()">Eliminar por ID</button>
+            <button onclick="buscar()">Buscar Estudiante</button>
+            <button onclick="chequearAprobado()">¿Aprobó? (ID)</button>
+            <button onclick="resumen()">Resumen y Promedio</button>
+        </div>
+
+        <div id="listaEstudiantes"></div>
+    </div>  
+
+    <script src="semana10.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Comercial</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .container { max-width: 400px; }
+        input, select, button { width: 100%; margin: 5px 0; padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Agregar Producto</h2>
+        <input type="text" id="titulo" placeholder="Nombre del producto">
+        <input type="text" id="autor" placeholder="Precio">
+
+        <label for="genero">Categoría:</label>
+        <select id="genero">
+            <option value="Electrodomésticos">Electrodomésticos</option>
+            <option value="Línea Blanca">Línea Blanca</option>
+            <option value="Muebles">Muebles</option>
+        </select>
+
+        <button onclick="addLibro()">Registrar Producto</button>
+        <button onclick="mostrarTodos()">Mostrar Todos</button>
+        <button onclick="eliminarLibro()">Eliminar Último</button>
+        <button onclick="filtrarPorGenero()">Filtrar Categoría</button>
+        <button onclick="resumen()">Resumen</button>
+
+        <div id="listaLibros"></div>
+    </div>  
+
+    <script src="Script2.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de sstacionamiento</title>
+    <style>
+        body { 
+        font-family: Arial; 
+        padding: 20px; }
+
+        .card { 
+        border: 1px solid #ccc; 
+        padding: 15px; 
+        width: 300px; 
+        border-radius: 5px; }
+
+        input { 
+        display: block; 
+        margin-bottom: 10px; 
+        width: 100%; }
+
+        button { 
+        width: 100%; 
+        cursor: pointer; }
+
+        #app { 
+        display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="login" class="card">
+        <h3>Login</h3>
+        <input type="text" id="u" placeholder="Usuario">
+        <input type="password" id="p" placeholder="Clave">
+        <button id="btn-entrar">Ingresar</button>
+    </div>
+
+    <div id="app">
+        <h3 id="msg"></h3>
+
+        <div class="card">
+
+            <h4>Entrada</h4>
+            <input type="text" id="placa" placeholder="Ingresa la Placa del auto">
+
+            <button id="btn-registrar">Registrarse</button>
+        </div>
+        <br>
+        <div class="card">
+            <h4>Salida</h4>
+
+            <input type="text" id="placa-salida" placeholder="Placa para cobrar">
+            <button id="btn-cobrar">Cobrar y Salir</button>
+
+        </div>
+        <h4>Autos adentro:</h4>
+        <ul id="lista"></ul>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

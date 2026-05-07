@@ -19,8 +19,7 @@
                     <td>${nombre}</td>
                     <td>${email}</td>
                     <td>${descripcion}</td>
-                    <td><button class="btn-edit" onclick="editRow(this)">Modificar</button></td>
-                `;
+                    <td><button class="btn-edit" onclick="editRow(this)">Modificar</button></td> `;
             } else {
     
                 const row = tableBody.rows[currentIndex];

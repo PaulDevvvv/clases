@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones en Js</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-seccion">
+            <h2>Agregar libro</h2>
+            <input type="text" id="titulo" placeholder="Título del libro">
+            <input type="text" id="autor" placeholder="Autor del libro">
+
+            <label for="genero">Género:</label>
+            <select id="genero">
+                <option value="ficcion">Aventura</option>
+                <option value="terror">Terror</option>
+                <option value="no ficcion">Ciencia ficción</option>
+                <option value="fantasia">Fantasía</option>
+            </select>
+
+          
+            <button onclick="addLibro()">Agregar libro</button>
+        </div>
+
+        <div class="actions">
+            <button onclick="mostrarTodos()">Mostrar Todos</button>
+            <!-- Corrección: nombre correcto de la función -->
+            <button onclick="eliminarLibro()">Eliminar el último libro</button>
+            <button onclick="filtrarPorGenero()">Filtrar por género</button>
+            <button onclick="resumen()">Resumen</button>
+        </div>
+
+      
+        <div id="listaLibros"></div>
+    </div>  
+
+    <script>
+        let biblioteca = [];
+
+        function addLibros(titulo, autor, genero) {
+            return { titulo, autor, genero };
+        }
+
+        function addLibro() {
+            let titulo = document.getElementById("titulo").value;
+            let autor = document.getElementById("autor").value;
+            let genero = document.getElementById("genero").value;
+
+            if(titulo === '' || autor === '') {
+                alert("Llene todos los campos de manera correcta");
+                return;
+            }
+
+            let libro = addLibros(titulo, autor, genero);
+            biblioteca.push(libro);
+
+            document.getElementById("titulo").value = '';
+            document.getElementById("autor").value = '';
+
+            alert('Libro registrado exitosamente: ' + libro.titulo);
+            mostrarTodos();
+        }
+
+        function mostrarTodos() {
+            let lista = document.getElementById("listaLibros");
+            lista.innerHTML = '';
+
+            if (biblioteca.length === 0) {
+                lista.innerHTML = 'No existen libros en la biblioteca';
+                return;
+            }
+
+            biblioteca.forEach(function(libro, index) {
+                let lib = document.createElement('div');
+                lib.className = 'libro-item';
+                lib.innerHTML = `Libro ${index + 1}: ${libro.titulo} de ${libro.autor} (${libro.genero})`;
+                lista.appendChild(lib);
+            });
+        }
+
+        function eliminarLibro() {
+            if(biblioteca.length > 0) {
+                let eliminarlibro = biblioteca.pop();
+                alert('El libro eliminado es: ' + eliminarlibro.titulo);
+                mostrarTodos();
+            } else {
+                alert('No hay libros que eliminar');
+            }
+        }
+
+        function filtrarPorGenero() {
+            let genero = prompt('Introduce un género');
+            if(!genero) return;
+
+            let lista = document.getElementById("listaLibros");
+            lista.innerHTML = '';
+
+            let librosFiltrados = biblioteca.filter(libro =>
+                libro.genero.toLowerCase() === genero.toLowerCase()
+            );
+
+            if(librosFiltrados.length === 0) {
+                lista.innerHTML = 'No existe libro con este tipo de género';
+                return;
+            }
+
+            librosFiltrados.forEach(function(libro, index) {
+                let lib = document.createElement('div');
+                lib.className = 'libro-item';
+                lib.innerHTML = `Libro ${index + 1}: ${libro.titulo} de ${libro.autor} (${libro.genero})`;
+                lista.appendChild(lib);
+            });
+        }
+
+        function resumen(){
+            let generos = new Set(biblioteca.map(libro => libro.genero));
+            let resumen = 'Resumen:\n';
+            generos.forEach(function(genero) {
+                let cantidad = biblioteca.filter(libro => libro.genero === genero).length;
+                resumen += `${genero}: ${cantidad} libros\n`;
+            });
+            alert(resumen);
+        }
+    </script>
+</body>
+</html>
